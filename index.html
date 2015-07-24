@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="style.css">
+		<script src="js_global/jquery.min.js"></script>
+		<script src="js_global/jquery.mustache.js"></script>
+		<script src="data/items.js"></script>
+		
+		<script src="app.js"></script>
+		
+	</head>
+	<body>
+		<div id="templates">
+			
+			<div id="navTemplate">
+				
+				<nav class="cardTypes-nav">
+					{{#cardTypes}}
+					<a class="navLink" id="navLink-cardTypes-{{id}}" href="#" onclick="mostrarType('{{id}}')">{{title}}</a>
+					{{/cardTypes}}
+				</nav>
+				
+			</div>
+			
+			<div id="itemTemplate">
+				{{#cardTypes}}
+				<div class="cardTypes" id="cardTypes-{{id}}">
+					<section class="cardTypes-description">
+					<h2 class="carTypes-title">
+						{{title}}
+						{{#isOnlyOne}}
+						(Only One)
+						{{/isOnlyOne}}
+						{{^isOnlyOne}}
+						(you can select more than one)
+						{{/isOnlyOne}}
+						
+					</h2>
+					<p class="cardTypes-text">{{desctiption}}</p>
+					</section>
+					<div class="cards">
+					{{#cards}}
+					<section class="card" id="card-{{id}}">
+						<img class="card-image" src="{{image.link}}" alt="{{image.altText}}"></img>
+						<div class="card-value">
+							Value: <b>{{value}}</b>
+						</div>
+						<div class="card-title">
+							<b>{{title}}</b>
+						</div>
+						<div class="card-text">
+							{{{text}}}
+						</div>
+					</section>
+					{{/cards}}
+					</div>
+				</div>
+				{{/cardTypes}}
+			</div>
+			
+			<div id="gameTemplate">
+				<img class="game-image" src="{{game.image.link}}" alt="{{game.image.altText}}">
+				<h1 class="game-title">
+					{{game.title}}
+				</h1>
+				<div class="game-description">
+					{{{game.description}}}
+				</div>
+				<div class="game-points">
+					<h2>Points: <div id="game-player-points">{{game.generatePoints}}</div><h2>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<div id="game">
+			
+		</div>
+		
+		<div id="nav">
+			
+		</div>
+		
+		<div id="cards">
+			
+		</div>
+	</body>
+</html>
