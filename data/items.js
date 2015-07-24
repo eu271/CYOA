@@ -343,7 +343,7 @@ var data = {
 					"text" : "A ridable dragon. You get it when its a baby and can ride it once its about three years old. Can breath fire, fly of course and devour your enemies. Has natural armour plating capable of withstanding most small arms fire as well as shrugging off most magic. Obviously fireproof too. Has the intelligence of an intelligent but wild animal. Tammming and controlling it will be difficult, even if you're its 'mother'. It probably won't eat you though, it likes you that much."
 				},
 				{
-					"id" : 31,
+					"id" : 40,
 					"title" : "Aloha 'Oe",
 					"image" : {
 						"link" : "data/img/aloha_oe.jpg",
