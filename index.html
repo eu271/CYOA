@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <!--
 Copyright (c) 2015 Eugenio Ochoa
 
@@ -19,31 +20,30 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 	--->
-<!DOCTYPE html>
 <html>
 	<head>
-		<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+		<link href="http://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="style.css">
 		<script src="js_global/jquery.min.js"></script>
 		<script src="js_global/jquery.mustache.js"></script>
 		<script src="data/items.js"></script>
-		
+
 		<script src="app.js"></script>
-		
+
 	</head>
 	<body>
 		<div id="templates">
-			
+
 			<div id="navTemplate">
-				
+
 				<nav class="cardTypes-nav">
 					{{#cardTypes}}
 					<a class="navLink" id="navLink-cardTypes-{{id}}" href="#" onclick="mostrarType('{{id}}')">{{title}}</a>
 					{{/cardTypes}}
 				</nav>
-				
+
 			</div>
-			
+
 			<div id="itemTemplate">
 				{{#cardTypes}}
 				<div class="cardTypes" id="cardTypes-{{id}}">
@@ -56,7 +56,7 @@ SOFTWARE.
 						{{^isOnlyOne}}
 						(you can select more than one)
 						{{/isOnlyOne}}
-						
+
 					</h2>
 					<p class="cardTypes-text">{{desctiption}}</p>
 					</section>
@@ -79,7 +79,7 @@ SOFTWARE.
 				</div>
 				{{/cardTypes}}
 			</div>
-			
+
 			<div id="gameTemplate">
 				<img class="game-image" src="{{game.image.link}}" alt="{{game.image.altText}}">
 				<h1 class="game-title">
@@ -89,23 +89,23 @@ SOFTWARE.
 					{{{game.description}}}
 				</div>
 				<div class="game-points">
-					<h2>Points: <div id="game-player-points">{{game.generatePoints}}</div><h2>
+					<h2>Points: <div id="game-player-points">{{game.generatePoints}}</div></h2>
 				</div>
 			</div>
 		</div>
-		
-		
-		
+
+
+
 		<div id="game">
-			
+
 		</div>
-		
+
 		<div id="nav">
-			
+
 		</div>
-		
+
 		<div id="cards">
-			
+
 		</div>
 	</body>
 </html>
