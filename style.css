@@ -9,11 +9,11 @@ body, html {
 
 }
 
-#templates {
+.templates {
 	display: none;
 }
 
-#game {
+.game {
 	display: block;
 
 	height: 250px;
@@ -37,11 +37,9 @@ body, html {
 	height: 100%;
 
 	border-radius: 10%;
-
-	float: left;
 }
 
-#game-player-points {
+.game-player-points {
 	display: inline;
 }
 
@@ -81,7 +79,7 @@ body, html {
 	background: darkgray;
 }
 
-#cards {
+.cards {
 	display: block;
 	text-align: center;
 

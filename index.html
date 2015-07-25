@@ -32,16 +32,14 @@ SOFTWARE.
 
 	</head>
 	<body>
-		<div id="templates">
+		<div class=".templates" id="templates">
 
 			<div id="navTemplate">
-
 				<nav class="cardTypes-nav">
 					{{#cardTypes}}
 					<a class="navLink" id="navLink-cardTypes-{{id}}" href="#" onclick="mostrarType('{{id}}')">{{title}}</a>
 					{{/cardTypes}}
 				</nav>
-
 			</div>
 
 			<div id="itemTemplate">
@@ -56,7 +54,6 @@ SOFTWARE.
 						{{^isOnlyOne}}
 						(you can select more than one)
 						{{/isOnlyOne}}
-
 					</h2>
 					<p class="cardTypes-text">{{desctiption}}</p>
 					</section>
@@ -96,15 +93,15 @@ SOFTWARE.
 
 
 
-		<div id="game">
+		<div class=".game" id="game">
 
 		</div>
 
-		<div id="nav">
+		<div class=".nav" id="nav">
 
 		</div>
 
-		<div id="cards">
+		<div class=".cards" id="cards">
 
 		</div>
 	</body>

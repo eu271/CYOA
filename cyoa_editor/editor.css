@@ -1,0 +1,138 @@
+body, html {
+	position: absolute;
+	margin: 0 auto;
+
+	width: 100%;
+	height: 100%;
+
+  background: yellow;
+
+}
+
+.templates {
+	display: none;
+}
+
+label, input, textarea {
+  display: block;
+  border: 0;
+  padding: 0;
+}
+
+.formCard {
+  display: inline-block;
+
+  border: 1px solid black;
+
+  width: 100%;
+  height: 200px;
+
+  text-align: center;
+  color: white;
+  background: black;
+}
+.formItem {
+  background: black;
+}
+.cardItem {
+  width: 100%;
+  height: 30px;
+  font-size: 15px;
+}
+.cardTitle {
+  font-size: 22px;
+}
+.cardValue {
+  text-align: right;
+}
+.cardDescription {
+  height: 100px;
+
+  padding: 10px;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.formCard-button:hover {
+  color: black;
+  background: white;
+}
+
+.formCardType {
+  display: inline-block;
+
+  border: 1px solid black;
+
+  width: 100%;
+
+  text-align: center;
+  color: white;
+  background: black;
+}
+
+.cardTypeTitle {
+  font-size: 22px;
+}
+.cardTypeValue {
+  text-align: right;
+}
+.cardTypeDescription {
+  height: 100px;
+
+  padding: 10px;
+  resize: none;
+  box-sizing: border-box;
+}
+.formCardType-button:hover {
+  color: black;
+  background: white;
+}
+
+.newGame {
+  color: white;
+  background: black;
+  text-align: center;
+  width: 100%;
+}
+
+.cardType {
+  background: orange;
+}
+
+.editorSelect {
+  text-align: center;
+}
+
+.buttonEditor {
+  display: inline-block;
+
+  width: 100px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  color: white;
+  background: red;
+}
+.buttonEditor:hover {
+  background: green;
+}
+
+.selectType {
+
+  width: 100px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+
+  border: 0;
+  color: white;
+  background: red;
+}
+
+.selectType:focus {
+  outline-width: 0;
+}
+
+.editorSelect {
+  width: 100%;
+}
