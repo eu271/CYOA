@@ -83,7 +83,7 @@ var mostrarType = function(id){
 
 
 //This horrible monstrosity needs an update.
-// Some cleaning done.
+// Some cleaning done....
 var click = function(id) {
 
 	var obj = objectsById[id];
