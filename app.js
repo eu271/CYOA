@@ -84,6 +84,7 @@ var mostrarType = function(id){
 
 //This horrible monstrosity needs an update.
 // Some cleaning done....
+asfsadfs
 var click = function(id) {
 
 	var obj = objectsById[id];
