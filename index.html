@@ -22,17 +22,40 @@ SOFTWARE.
 	--->
 <html>
 	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 		<link href="http://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="style.css">
 		<script src="js_global/jquery.min.js"></script>
 		<script src="js_global/jquery.mustache.js"></script>
-		<script src="data/items.js"></script>
+
+		<script src="data/games.js"></script>
+		<script src="data/fourth_wall/fourth_wall_en.js"></script>
 
 		<script src="app.js"></script>
 
 	</head>
 	<body>
 		<div class=".templates" id="templates">
+
+			<div id="langSelectTemplate">
+				<div id="select-lang-wrapper">
+					<select id="select-lang" class="select-lang" onchange="langChange()">
+						{{#.}}
+						<option value="{{id}}">{{language}}</option>
+						{{/.}}
+					</select>
+				</div>
+			</div>
+
+			<div id="gameSelectTemplate">
+				<div id="select-game-wrapper">
+					<select id="select-game" class="select-game" onchange="gameChange()">
+						{{#games}}
+						<option value="{{file}}">{{name}}</option>
+						{{/games}}
+					</select>
+			</div>
+			</div>
 
 			<div id="navTemplate">
 				<nav class="cardTypes-nav">
@@ -60,7 +83,7 @@ SOFTWARE.
 					<div class="cards">
 					{{#cards}}
 					<section class="card" id="card-{{id}}">
-						<img class="card-image" src="{{image.link}}" alt="{{image.altText}}"></img>
+						<img class="card-image" src="{{image.link}}" alt="{{image.altText}}" />
 						<div class="card-value">
 							Value: <b>{{value}}</b>
 						</div>

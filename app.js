@@ -1,4 +1,4 @@
-/* global $, Mustache, data */
+/* global $, Mustache, data, games */
 /**
  * Copyright (c) 2015 Eugenio Ochoa
  *
@@ -24,9 +24,12 @@
 var itemTemplate
 var gameTemplate
 var navTemplate
+var langSelectTemplate
+var gameSelectTemplate
 
 var objectsById = {}
 var typesById = {}
+var gamesByLang = {}
 
 var vista = {}
 
@@ -42,10 +45,21 @@ var loadTemplates = function () {
   navTemplate = $('#navTemplate').html()
   Mustache.parse(navTemplate)
 
+  langSelectTemplate = $('#langSelectTemplate').html()
+  Mustache.parse(langSelectTemplate)
+
+  gameSelectTemplate = $('#gameSelectTemplate').html()
+  Mustache.parse(gameSelectTemplate)
+
   // Delete html templates.
   $('#templates').html('')
 
   // loadObjects
+  loadObjects()
+
+}
+
+var loadObjects = function () {
   for (var i = 0, len = data.cardTypes.length; i < len; i++) {
 
     typesById['cardTypes-' + data.cardTypes[i].id] = data.cardTypes[i]
@@ -57,8 +71,11 @@ var loadTemplates = function () {
 
   }
 
-  vista['playerPoints'] = $('#game-player-points')
+  for (i = 0, len = games.length; i < len; i++) {
+    gamesByLang[games[i].id] = games[i]
+  }
 
+  vista['playerPoints'] = $('#game-player-points')
 }
 
 var renderItem = function (item) {
@@ -73,12 +90,57 @@ var renderNav = function (nav) {
   return Mustache.render(navTemplate, nav)
 }
 
+var renderSelectLang = function (games) {
+  return Mustache.render(langSelectTemplate, games)
+}
+
+var renderSelectGame = function (game) {
+  return Mustache.render(gameSelectTemplate, game)
+}
+
 var mostrarType = function (id) {
   $('.cardTypes').css('display', 'none')
   $('#cardTypes-' + id).css('display', 'block')
 
   $('.navLink').removeClass('navLink-seleccionado')
   $('#navLink-cardTypes-' + id).addClass('navLink-seleccionado')
+}
+
+var reloadGame = function () {
+  $('#game').html('')
+  $('#cards').html('')
+  $('#nav').html('')
+
+  objectsById = {}
+  typesById = {}
+  gamesByLang = {}
+  objectsSelected = {}
+
+  loadObjects()
+
+  $('#game').html(renderGame(data))
+  $('#cards').append(renderItem(data))
+  $('#nav').append(renderNav(data))
+
+  mostrarType(typesById[Object.keys(typesById)[0]].id)
+
+  $('.card').click(function () {
+    click($(this).attr('id'))
+  })
+}
+
+var langChange = function () {
+  $('#select-game-wrapper').html(
+    renderSelectGame(
+      gamesByLang[$('#select-lang').val()]
+    )
+  )
+
+  gameChange()
+}
+
+var gameChange = function () {
+  $.getScript('/data/' + $('#select-game').val())
 }
 
 // This horrible monstrosity needs an update.
@@ -154,6 +216,10 @@ $(document).ready(function () {
   $('#game').html(renderGame(data))
   $('#cards').append(renderItem(data))
   $('#nav').append(renderNav(data))
+
+
+  $('body').prepend(renderSelectGame(games[0]))
+  $('body').prepend(renderSelectLang(games))
 
   mostrarType(typesById[Object.keys(typesById)[0]].id)
 
