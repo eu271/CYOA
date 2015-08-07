@@ -1,46 +1,120 @@
+/*****************RESET******************************/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	vertical-align: baseline;
+
+  font-size: 13px; 	font-family: 'Ubuntu', sans-serif;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*****************END RESET******************************/
+
+
 body, html {
 	position: absolute;
+	top:0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+
 	margin: 0 auto;
-	background: white;
+
 
 	width: 100%;
 	height: 100%;
 
+}
 
+p {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+b {
+	font-weight: bold;
 }
 
 .templates {
 	display: none;
 }
+.game-wrapper {
+	position: absolute;
+	top: 101%;
+}
 
-.game {
+header {
 	display: block;
 
 	height: 250px;
 	width: 100%;
 
-	text-align: center;
-
 	padding-left: 15px;
 	padding-right: 15px;
-	box-sizing: border-box;
 
-	background: white;
 }
 
 .game-image {
 	display: inline-block;
+	float: left;
 	object-fit: cover;
 
 	min-width: 20%;
 	max-width: 40%;
 	height: 100%;
 
+	padding-right: 10px;
+
 	border-radius: 10%;
 }
 
-.game-player-points {
-	display: inline;
+.game-title {
+	font-size: 34px;
+	font-weight: bold;
+	text-align: center;
+}
+.game-description {
+	font-size: 15px;
+}
+.game-points, .game-points>span {
+	font-size: 32px;
+	font-weight: bold;
+	text-align: center;
 }
 
 .cardTypes-nav {
@@ -50,7 +124,8 @@ body, html {
 	text-align: center;
 
 	padding-left: 40px;
-	margin-top: 40px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .navLink {
@@ -84,6 +159,14 @@ body, html {
 	text-align: center;
 
 	background: white;
+}
+.cardTypes-description {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.cardTypes-title {
+	font-size: 32px;
+	font-weight: bold;
 }
 
 .card {
@@ -162,7 +245,6 @@ body, html {
 	padding-right: 5px;
 	box-sizing: border-box;
 
-	font-family: 'Ubuntu', sans-serif;
 
 	text-align: justify;
     text-justify: inter-word;
@@ -170,6 +252,29 @@ body, html {
 	overflow: scroll;
 	overflow-y: auto;
 	overflow-x: auto;
+}
 
+.game-lang-selector {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	padding-bottom: 30px;
+	background: purple;
+	text-align: center;
+}
 
+.selector-title {
+	font-size: 42px;
+	font-weight: bolder;
+	text-align: center;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+select {
+	width: 150px;
+	height: 30px;
+	line-height: 30px;
 }

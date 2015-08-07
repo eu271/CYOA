@@ -476,4 +476,4 @@ var data = {
 
   ]
 }
-reloadGame()
+loadGame()

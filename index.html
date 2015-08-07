@@ -24,13 +24,12 @@ SOFTWARE.
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 		<link href="http://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="style.css">
 		<script src="js_global/jquery.min.js"></script>
 		<script src="js_global/jquery.mustache.js"></script>
 
 		<script src="data/games.js"></script>
-		<script src="data/fourth_wall/fourth_wall_en.js"></script>
-
 		<script src="app.js"></script>
 
 	</head>
@@ -40,6 +39,7 @@ SOFTWARE.
 			<div id="langSelectTemplate">
 				<div id="select-lang-wrapper">
 					<select id="select-lang" class="select-lang" onchange="langChange()">
+						<option disabled selected> -- select lang-- </option>
 						{{#.}}
 						<option value="{{id}}">{{language}}</option>
 						{{/.}}
@@ -60,7 +60,7 @@ SOFTWARE.
 			<div id="navTemplate">
 				<nav class="cardTypes-nav">
 					{{#cardTypes}}
-					<a class="navLink" id="navLink-cardTypes-{{id}}" href="#" onclick="mostrarType('{{id}}')">{{title}}</a>
+					<a class="navLink" id="navLink-cardTypes-{{id}}" href="#game-title" onclick="mostrarType('{{id}}')">{{title}}</a>
 					{{/cardTypes}}
 				</nav>
 			</div>
@@ -69,7 +69,7 @@ SOFTWARE.
 				{{#cardTypes}}
 				<div class="cardTypes" id="cardTypes-{{id}}">
 					<section class="cardTypes-description">
-					<h2 class="carTypes-title">
+					<h2 class="cardTypes-title">
 						{{title}}
 						{{#isOnlyOne}}
 						(Only One)
@@ -102,30 +102,34 @@ SOFTWARE.
 
 			<div id="gameTemplate">
 				<img class="game-image" src="{{game.image.link}}" alt="{{game.image.altText}}">
-				<h1 class="game-title">
+				<h1 class="game-title" id="game-title">
 					{{game.title}}
 				</h1>
 				<div class="game-description">
 					{{{game.description}}}
 				</div>
-				<div class="game-points">
-					<h2>Points: <div id="game-player-points">{{game.generatePoints}}</div></h2>
-				</div>
+					<h2 class="game-points">Points: <span id="game-player-points">{{game.generatePoints}}</span></h2>
 			</div>
 		</div>
 
+		<nav class="game-lang-selector" id="game-lang-selector">
+			<h1 class="selector-title">What's a CYOA game?</h1>
 
+			<i class="fa fa-arrow-down fa-5x"></i>
 
-		<div class=".game" id="game">
+		</nav>
+		<div class="game-wrapper">
+			<header class="game">
 
-		</div>
+			</header>
 
-		<div class=".nav" id="nav">
+			<div id="card-type-navigator">
 
-		</div>
+			</div>
 
-		<div class=".cards" id="cards">
+			<div class="cards" id="cards">
 
+			</div>
 		</div>
 	</body>
 </html>

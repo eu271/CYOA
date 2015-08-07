@@ -31,8 +31,6 @@ var objectsById = {}
 var typesById = {}
 var gamesByLang = {}
 
-var vista = {}
-
 var objectsSelected = {}
 
 var loadTemplates = function () {
@@ -54,9 +52,9 @@ var loadTemplates = function () {
   // Delete html templates.
   $('#templates').html('')
 
-  // loadObjects
-  loadObjects()
-
+  for (var i = 0, len = games.length; i < len; i++) {
+    gamesByLang[games[i].id] = games[i]
+  }
 }
 
 var loadObjects = function () {
@@ -75,25 +73,20 @@ var loadObjects = function () {
     gamesByLang[games[i].id] = games[i]
   }
 
-  vista['playerPoints'] = $('#game-player-points')
 }
 
 var renderItem = function (item) {
   return Mustache.render(itemTemplate, item)
 }
-
 var renderGame = function (item) {
   return Mustache.render(gameTemplate, item)
 }
-
 var renderNav = function (nav) {
   return Mustache.render(navTemplate, nav)
 }
-
 var renderSelectLang = function (games) {
   return Mustache.render(langSelectTemplate, games)
 }
-
 var renderSelectGame = function (game) {
   return Mustache.render(gameSelectTemplate, game)
 }
@@ -106,10 +99,10 @@ var mostrarType = function (id) {
   $('#navLink-cardTypes-' + id).addClass('navLink-seleccionado')
 }
 
-var reloadGame = function () {
-  $('#game').html('')
+var loadGame = function () {
+
+  $('#card-type-navigator').html('')
   $('#cards').html('')
-  $('#nav').html('')
 
   objectsById = {}
   typesById = {}
@@ -118,9 +111,9 @@ var reloadGame = function () {
 
   loadObjects()
 
-  $('#game').html(renderGame(data))
+  $('header').html(renderGame(data))
+  $('#card-type-navigator').append(renderNav(data))
   $('#cards').append(renderItem(data))
-  $('#nav').append(renderNav(data))
 
   mostrarType(typesById[Object.keys(typesById)[0]].id)
 
@@ -213,18 +206,6 @@ var click = function (id) {
 $(document).ready(function () {
   loadTemplates()
 
-  $('#game').html(renderGame(data))
-  $('#cards').append(renderItem(data))
-  $('#nav').append(renderNav(data))
-
-
-  $('body').prepend(renderSelectGame(games[0]))
-  $('body').prepend(renderSelectLang(games))
-
-  mostrarType(typesById[Object.keys(typesById)[0]].id)
-
-  $('.card').click(function () {
-    click($(this).attr('id'))
-  })
-
+  $('#game-lang-selector').append(renderSelectLang(games))
+  $('#game-lang-selector').append(renderSelectGame(games[0]))
 })
